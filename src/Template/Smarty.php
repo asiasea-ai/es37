@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Template;
+namespace Es37\Template;
 
 use EasySwoole\Template\RenderInterface;
 

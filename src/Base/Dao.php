@@ -1,15 +1,15 @@
 <?php
 
-namespace Es3\Base;
+namespace Es37\Base;
 
 use App\Constant\ResultConst;
 use EasySwoole\Component\Di;
 use EasySwoole\ORM\Db\ClientInterface;
 use EasySwoole\ORM\DbManager;
-use Es3\Exception\ErrorException;
+use Es37\Exception\ErrorException;
 use EasySwoole\Mysqli\QueryBuilder;
-use Es3\Exception\InfoException;
-use Es3\Exception\WaringException;
+use Es37\Exception\InfoException;
+use Es37\Exception\WaringException;
 use function PHPUnit\Framework\any;
 
 trait Dao
@@ -188,7 +188,7 @@ trait Dao
             if ($orderBys) {
                 foreach ($orderBys as $key => $orderBy) {
                     /** 如果该字段在表中不存在 就报错 */
-                    $isExist = \Es3\Utility\Model::columnIsExist($model, $key);
+                    $isExist = \Es37\Utility\Model::columnIsExist($model, $key);
                     if (!$isExist) {
                         throw new InfoException(1063, "无法按{$key}进行排序 数据表{$tableName}不存在{$key}字段");
                     }
@@ -227,7 +227,7 @@ trait Dao
             $tableName = $model->getTableName();
 
             /** 如果该字段在表中不存在 就报错 */
-            $isExist = \Es3\Utility\Model::columnIsExist($model, $column);
+            $isExist = \Es37\Utility\Model::columnIsExist($model, $column);
             if (!$isExist) {
                 throw new InfoException(1063, "无法按{$column}进行切换状态 数据表{$tableName}不存在{$column}字段");
             }

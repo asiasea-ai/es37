@@ -1,14 +1,14 @@
 <?php
 
-namespace Es3\Call;
+namespace Es37\Call;
 
 use EasySwoole\Component\Di;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\HttpClient\Bean\Response;
 use  EasySwoole\HttpClient\HttpClient;
-use Es3\Exception\CurlException;
-use Es3\Exception\ErrorException;
-use Es3\Exception\InfoException;
+use Es37\Exception\CurlException;
+use Es37\Exception\ErrorException;
+use Es37\Exception\InfoException;
 
 class Curl extends HttpClient
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Es3;
+namespace Es37;
 
-use Es3\Utility\File;
+use Es37\Utility\File;
 
 class Bootstrap
 {

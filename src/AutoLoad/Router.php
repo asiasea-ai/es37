@@ -1,13 +1,13 @@
 <?php
 
-namespace Es3\AutoLoad;
+namespace Es37\AutoLoad;
 
 use App\Constant\AppConst;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Command\Utility;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Http\AbstractInterface\AbstractRouter;
-use Es3\EsConst;
+use Es37\EsConst;
 use FastRoute\RouteCollector;
 
 /**
@@ -27,7 +27,7 @@ class Router
     public function autoLoad(): void
     {
         try {
-            $path = EASYSWOOLE_ROOT . '/' . \Es3\Constant\EsConst::ES_DIRECTORY_APP_NAME . '/' . \Es3\Constant\EsConst::ES_DIRECTORY_MODULE_NAME . '/';
+            $path = EASYSWOOLE_ROOT . '/' . \Es37\Constant\EsConst::ES_DIRECTORY_APP_NAME . '/' . \Es37\Constant\EsConst::ES_DIRECTORY_MODULE_NAME . '/';
             $files = scandir($path) ?? [];
 
             foreach ($files as $key => $dir) {
@@ -41,7 +41,7 @@ class Router
             // 上游原版只扫 L1,本补丁:L1 直接命中就用 L1,否则扫 L2 目录;
             // 见 Doc/vendor/Es3.md #1
             foreach ($files as $dir) {
-                $l1RouterFile = $path . $dir . '/' . \Es3\Constant\EsConst::ES_FILE_NAME_ROUTER;
+                $l1RouterFile = $path . $dir . '/' . \Es37\Constant\EsConst::ES_FILE_NAME_ROUTER;
                 if (file_exists($l1RouterFile)) {
                     // L1 命中:沿用旧行为
                     $data = require_once $l1RouterFile;
@@ -61,7 +61,7 @@ class Router
                     if (strpos($l2, '.') !== false) {
                         continue;
                     }
-                    $l2RouterFile = $l1Dir . '/' . $l2 . '/' . \Es3\Constant\EsConst::ES_FILE_NAME_ROUTER;
+                    $l2RouterFile = $l1Dir . '/' . $l2 . '/' . \Es37\Constant\EsConst::ES_FILE_NAME_ROUTER;
                     if (!file_exists($l2RouterFile)) {
                         continue;
                     }

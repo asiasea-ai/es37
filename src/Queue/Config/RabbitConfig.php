@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Queue\Config;
+namespace Es37\Queue\Config;
 
 use EasySwoole\Spl\SplBean;
 

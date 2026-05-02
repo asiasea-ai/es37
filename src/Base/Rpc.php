@@ -1,14 +1,14 @@
 <?php
 
-namespace Es3\Base;
+namespace Es37\Base;
 
 use App\Constant\ResultConst;
 use App\Constant\RpcConst;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Rpc\Response;
-use Es3\Exception\ErrorException;
-use Es3\Exception\WaringException;
+use Es37\Exception\ErrorException;
+use Es37\Exception\WaringException;
 
 class Rpc
 {

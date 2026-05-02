@@ -1,14 +1,14 @@
 <?php
 
-namespace Es3\Output;
+namespace Es37\Output;
 
 use App\Constant\AppConst;
 use App\Constant\ResultConst;
 use EasySwoole\Component\Context\ContextManager;
 use EasySwoole\Component\Di;
-use Es3\Constant\EsConst;
-use Es3\EsConfig;
-use Es3\Utility\Text;
+use Es37\Constant\EsConst;
+use Es37\EsConfig;
+use Es37\Utility\Text;
 
 class Result
 {
@@ -104,10 +104,10 @@ class Result
     {
         $result = empty($this->_result) ? (object)[] : $this->_result;
 
-        if (ContextManager::getInstance()->get(\Es3\Constant\ResultConst::FILE_KEY)) {
-            $line = ContextManager::getInstance()->get(\Es3\Constant\ResultConst::LINE_KEY);
-            $file = Text::phpToJava(ContextManager::getInstance()->get(\Es3\Constant\ResultConst::FILE_KEY), $line);
-            $trace = ContextManager::getInstance()->get(\Es3\Constant\ResultConst::TRACE_KEY);
+        if (ContextManager::getInstance()->get(\Es37\Constant\ResultConst::FILE_KEY)) {
+            $line = ContextManager::getInstance()->get(\Es37\Constant\ResultConst::LINE_KEY);
+            $file = Text::phpToJava(ContextManager::getInstance()->get(\Es37\Constant\ResultConst::FILE_KEY), $line);
+            $trace = ContextManager::getInstance()->get(\Es37\Constant\ResultConst::TRACE_KEY);
         } else {
             $line = $this->_line;;
             $file = Text::phpToJava($this->_file, $line);

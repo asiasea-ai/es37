@@ -1,12 +1,12 @@
 <?php
 
-namespace Es3\Base;
+namespace Es37\Base;
 
 use App\Constant\AppConst;
 use EasySwoole\Component\Di;
 use EasySwoole\Mysqli\QueryBuilder;
-use Es3\Constant\ResultConst;
-use Es3\Exception\WaringException;
+use Es37\Constant\ResultConst;
+use Es37\Exception\WaringException;
 
 trait Service
 {

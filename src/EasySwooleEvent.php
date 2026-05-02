@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3;
+namespace Es37;
 
 use App\Constant\AppConst;
 use App\Constant\EnvConst;
@@ -27,16 +27,16 @@ use EasySwoole\ORM\Db\Connection;
 use EasySwoole\ORM\DbManager;
 use EasySwoole\Pool\Exception\Exception;
 use EasySwoole\Template\Render;
-use Es3\Constant\EsConst;
-use Es3\Handle\ErrorHandel;
-use Es3\Handle\ShutdownHandel;
-use Es3\Handle\TriggerHandel;
-use Es3\Policy;
-use Es3\Exception\ErrorException;
-use Es3\Handle\HttpThrowable;
-use Es3\Output\Result;
-use Es3\Template\Smarty;
-use Es3\ThrowableHandle\Handle;
+use Es37\Constant\EsConst;
+use Es37\Handle\ErrorHandel;
+use Es37\Handle\ShutdownHandel;
+use Es37\Handle\TriggerHandel;
+use Es37\Policy;
+use Es37\Exception\ErrorException;
+use Es37\Handle\HttpThrowable;
+use Es37\Output\Result;
+use Es37\Template\Smarty;
+use Es37\ThrowableHandle\Handle;
 
 class EasySwooleEvent
 {
@@ -59,13 +59,13 @@ class EasySwooleEvent
             is_dir(strtolower(EnvConst::PATH_LOCK)) ? null : mkdir(strtolower(EnvConst::PATH_LOCK), 0777, true);
 
             /** 日志初始化 */
-            $logger = new \Es3\Handle\LoggerHandel(\App\Constant\EnvConst::PATH_LOG);
+            $logger = new \Es37\Handle\LoggerHandel(\App\Constant\EnvConst::PATH_LOG);
             \EasySwoole\Component\Di::getInstance()->set(SysConst::LOGGER_HANDLER, $logger);
 
             \EasySwoole\Component\Di::getInstance()->set(SysConst::TRIGGER_HANDLER, new \EasySwoole\Trigger\Trigger($logger));
 
             /** 加载配置文件 */
-            \Es3\AutoLoad\Config::getInstance()->autoLoad();
+            \Es37\AutoLoad\Config::getInstance()->autoLoad();
 
             /** ORM  */
             $mysqlConf = config('mysql', true);
@@ -95,7 +95,7 @@ class EasySwooleEvent
             }
 
             /** 路由初始化 */
-            \Es3\AutoLoad\Router::getInstance()->autoLoad();
+            \Es37\AutoLoad\Router::getInstance()->autoLoad();
 
             /** 配置控制器命名空间 */
             Di::getInstance()->set(SysConst::HTTP_CONTROLLER_NAMESPACE, 'App\\Controller\\');
@@ -146,7 +146,7 @@ class EasySwooleEvent
     /**
      * @throws \EasySwoole\Component\Process\Exception
      * @throws \EasySwoole\RedisPool\Exception\Exception
-     * @throws \Es3\Exception\ErrorException
+     * @throws \Es37\Exception\ErrorException
      * @throws \EasySwoole\RedisPool\RedisPoolException
      */
     public static function mainServerCreate(EventRegister $register): void
@@ -200,17 +200,17 @@ class EasySwooleEvent
             Render::getInstance()->attachServer(ServerManager::getInstance()->getSwooleServer());
 
             /** 初始化定时任务 */
-            \Es3\AutoLoad\Crontab::getInstance()->autoLoad();
+            \Es37\AutoLoad\Crontab::getInstance()->autoLoad();
             /** 初始化自定义进程 */
-            \Es3\AutoLoad\Process::getInstance()->autoLoad();
+            \Es37\AutoLoad\Process::getInstance()->autoLoad();
 
             /** rabbitMQ 注册 */
             $rabbitConf = config('rabbit', true) ?? null;
             if (!superEmpty($rabbitConf)) {
                 // 连接池注册
                 $config = new \EasySwoole\Pool\Config();
-                $rabbitConfig = new \Es3\Queue\Config\RabbitConfig($rabbitConf);
-                \EasySwoole\Pool\Manager::getInstance()->register(new \Es3\Pool\RabbitPool($config, $rabbitConfig), EsConst::ES_RABBIT);
+                $rabbitConfig = new \Es37\Queue\Config\RabbitConfig($rabbitConf);
+                \EasySwoole\Pool\Manager::getInstance()->register(new \Es37\Pool\RabbitPool($config, $rabbitConfig), EsConst::ES_RABBIT);
             }
 
         } catch (\Throwable $throwable) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Base;
+namespace Es37\Base;
 
 use App\Constant\AppConst;
 use EasySwoole\Mysqli\QueryBuilder;
@@ -8,11 +8,11 @@ use EasySwoole\ORM\AbstractModel;
 use EasySwoole\ORM\Db\ClientInterface;
 use EasySwoole\ORM\DbManager;
 use EasySwoole\ORM\Utility\Schema\Table;
-use Es3\Constant\ResultConst;
-use Es3\EsUtility;
-use Es3\Exception\DbException;
-use Es3\Exception\ErrorException;
-use Es3\Exception\InfoException;
+use Es37\Constant\ResultConst;
+use Es37\EsUtility;
+use Es37\Exception\DbException;
+use Es37\Exception\ErrorException;
+use Es37\Exception\InfoException;
 
 class Model extends AbstractModel
 {
@@ -132,7 +132,7 @@ class Model extends AbstractModel
     public function insertAll($data): array
     {
         $tableName = $this->getTableName();
-        $data = \Es3\Utility\Model::insertAll($tableName, $data);
+        $data = \Es37\Utility\Model::insertAll($tableName, $data);
 
         $sql = $data[ResultConst::DB_QUERY];
         $bind = $data[ResultConst::DB_BIND];
@@ -167,7 +167,7 @@ class Model extends AbstractModel
      * 取整张表的字段元数据 map(即 FIELDS 常量)。
      *
      * 命名带 get 前缀,避开 EasySwoole ORM AbstractModel 已存在的 instance 方法 field()。
-     * 历史:本来在项目侧 App\Base\BaseModel,2026-05-02 合并到 Es3\Base\Model
+     * 历史:本来在项目侧 App\Base\BaseModel,2026-05-02 合并到 Es37\Base\Model
      * (登记 Doc/vendor/Es3.md #5)。
      *
      * @return array<string, array{name: string, type: string, value?: array<int|string, string>}>

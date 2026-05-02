@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Constant;
+namespace Es37\Constant;
 
 class ResultConst
 {

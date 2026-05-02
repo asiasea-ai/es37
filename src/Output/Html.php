@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Output;
+namespace Es37\Output;
 
 use App\Constant\AppConst;
 use EasySwoole\Component\Context\ContextManager;

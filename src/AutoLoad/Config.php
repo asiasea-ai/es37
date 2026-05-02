@@ -1,20 +1,20 @@
 <?php
 
-namespace Es3\AutoLoad;
+namespace Es37\AutoLoad;
 
 use App\Constant\AppConst;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Command\Utility;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Http\AbstractInterface\AbstractRouter;
-use Es3\EsConfig;
-use Es3\EsConst;
+use Es37\EsConfig;
+use Es37\EsConst;
 use FastRoute\RouteCollector;
 
 /**
  * 配置自动加载
  * Class HttpRouter
- * @package Es3\Autoload
+ * @package Es37\Autoload
  */
 class Config
 {
@@ -27,7 +27,7 @@ class Config
     {
         try {
             $instance = \EasySwoole\EasySwoole\Config::getInstance();
-            $path = EASYSWOOLE_ROOT . '/' . \Es3\Constant\EsConst::ES_DIRECTORY_CONF_NAME . '/';
+            $path = EASYSWOOLE_ROOT . '/' . \Es37\Constant\EsConst::ES_DIRECTORY_CONF_NAME . '/';
             $files = scandir($path) ?? [];
 
             foreach ($files as $file) {

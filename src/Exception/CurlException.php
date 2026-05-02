@@ -1,11 +1,11 @@
 <?php
 
-namespace Es3\Exception;
+namespace Es37\Exception;
 
 use App\Constant\AppConst;
 use EasySwoole\Component\Di;
 use EasySwoole\EasySwoole\Logger;
-use Es3\Constant\ResultConst;
+use Es37\Constant\ResultConst;
 
 class CurlException extends BaseException
 {

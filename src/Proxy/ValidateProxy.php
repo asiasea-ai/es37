@@ -1,14 +1,14 @@
 <?php
 
-namespace Es3\Proxy;
+namespace Es37\Proxy;
 
 use App\Constant\AppConst;
-use Es3\Constant\EsConst;
+use Es37\Constant\EsConst;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Validate\Validate;
-use Es3\EsUtility;
-use Es3\Exception\InfoException;
-use Es3\Exception\WaringException;
+use Es37\EsUtility;
+use Es37\Exception\InfoException;
+use Es37\Exception\WaringException;
 
 class ValidateProxy
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3;
+namespace Es37;
 
 use App\Constant\AppConst;
 use App\Constant\ResultConst;
@@ -9,13 +9,13 @@ use EasySwoole\Component\Di;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Config;
 use EasySwoole\Http\AbstractInterface\AbstractRouter;
-use Es3\Constant\EsConst;
+use Es37\Constant\EsConst;
 use FastRoute\RouteCollector;
 
 /**
  * 配置自动加载
  * Class HttpRouter
- * @package Es3\Autoload
+ * @package Es37\Autoload
  */
 class Trace
 {

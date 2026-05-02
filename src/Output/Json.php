@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Output;
+namespace Es37\Output;
 
 use App\AppConst\AppInfo;
 use App\Constant\AppConst;
@@ -15,8 +15,8 @@ use EasySwoole\Core\Swoole\Task\TaskManager;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Http\Response;
 use EasySwoole\Log\LoggerInterface;
-use Es3\EsConfig;
-use Es3\Output\Result;
+use Es37\EsConfig;
+use Es37\Output\Result;
 
 class Json
 {
@@ -73,7 +73,7 @@ class Json
         $data = $result->toArray();
 
         /** 记录请求log */
-        ContextManager::getInstance()->set(\Es3\Constant\ResultConst::RESPONSE_KEY,
+        ContextManager::getInstance()->set(\Es37\Constant\ResultConst::RESPONSE_KEY,
             ['response_code' => $code, 'response_msg' => $msg, 'http_code' => $response->getStatusCode()]
         );
 

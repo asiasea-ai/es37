@@ -1,10 +1,10 @@
 <?php
 
-namespace Es3\Pool;
+namespace Es37\Pool;
 
 use EasySwoole\Pool\AbstractPool;
 use EasySwoole\Pool\Config;
-use Es3\Queue\Config\RabbitConfig;
+use Es37\Queue\Config\RabbitConfig;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 class RabbitPool extends AbstractPool

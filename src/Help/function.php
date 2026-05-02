@@ -5,8 +5,8 @@ use App\Constant\AppConst;
 use EasySwoole\Component\Context\ContextManager;
 use EasySwoole\Component\Di;
 use EasySwoole\Http\Request;
-use Es3\Constant\EsConst;
-use Es3\Trace;
+use Es37\Constant\EsConst;
+use Es37\Trace;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 function isProduction(): bool
@@ -140,7 +140,7 @@ function identity()
 }
 
 /**
- * @throws \Es3\Exception\InfoException
+ * @throws \Es37\Exception\InfoException
  * @throws \EasySwoole\Component\Context\Exception\ModifyError
  */
 function setAppCode($appCode): void
@@ -149,7 +149,7 @@ function setAppCode($appCode): void
     $headerAppCode = $ref->getConstant('HEADER_APP_CODE');
 
     if (superEmpty($headerAppCode)) {
-        throw new \Es3\Exception\InfoException(1036, "AppBi\Constant\AppConst常量中缺少 HEADER_APP_CODE 常量");
+        throw new \Es37\Exception\InfoException(1036, "AppBi\Constant\AppConst常量中缺少 HEADER_APP_CODE 常量");
     }
 
 //    Di::getInstance()->set($headerAppCode, $appCode);
@@ -157,7 +157,7 @@ function setAppCode($appCode): void
 }
 
 /**
- * @throws \Es3\Exception\InfoException
+ * @throws \Es37\Exception\InfoException
  */
 function appCode()
 {
@@ -165,19 +165,19 @@ function appCode()
     $headerAppCode = $ref->getConstant('HEADER_APP_CODE');
 
     if (superEmpty($headerAppCode)) {
-        throw new \Es3\Exception\InfoException(1035, "AppBi\Constant\AppConst常量中缺少 HEADER_APP_CODE 常量");
+        throw new \Es37\Exception\InfoException(1035, "AppBi\Constant\AppConst常量中缺少 HEADER_APP_CODE 常量");
     }
 
     return ContextManager::getInstance()->get($headerAppCode);
 }
 
 /**
- * @throws \Es3\Exception\InfoException
+ * @throws \Es37\Exception\InfoException
  */
 function redisKey(string ...$key): string
 {
     if (superEmpty($key)) {
-        throw new \Es3\Exception\InfoException(1301, '请传递redis key');
+        throw new \Es37\Exception\InfoException(1301, '请传递redis key');
     }
 
     $key = implode('_', $key);
@@ -260,8 +260,8 @@ function dump($val, bool $isExit = false, bool $showJson = false): void
  */
 function getLogExtend()
 {
-//    Di::getInstance()->get(\Es3\Constant\ResultConst::EXTEND_ID_KEY);
-    return ContextManager::getInstance()->get(\Es3\Constant\ResultConst::EXTEND_ID_KEY);
+//    Di::getInstance()->get(\Es37\Constant\ResultConst::EXTEND_ID_KEY);
+    return ContextManager::getInstance()->get(\Es37\Constant\ResultConst::EXTEND_ID_KEY);
 }
 
 /**
@@ -272,8 +272,8 @@ function setLogExtend(string $extendId)
 {
     // 长度不能超过50个字符
     $extendId = mb_substr($extendId, 50);
-//    Di::getInstance()->set(\Es3\Constant\ResultConst::EXTEND_ID_KEY, $extendId);
-    ContextManager::getInstance()->set(\Es3\Constant\ResultConst::EXTEND_ID_KEY, $extendId);
+//    Di::getInstance()->set(\Es37\Constant\ResultConst::EXTEND_ID_KEY, $extendId);
+    ContextManager::getInstance()->set(\Es37\Constant\ResultConst::EXTEND_ID_KEY, $extendId);
 }
 
 /**
@@ -286,9 +286,9 @@ function setResultFile(Throwable $throwable, int $traceNumber = 2)
         $trace = $throwable->getTrace()[$traceNumber] ?? null;
         $file = $trace['file'] ?? null . $trace['function'] ?? null;
         $line = $trace['line'] ?? null;
-        ContextManager::getInstance()->set(\Es3\Constant\ResultConst::FILE_KEY, $file);
-        ContextManager::getInstance()->set(\Es3\Constant\ResultConst::LINE_KEY, $line);
-        ContextManager::getInstance()->set(\Es3\Constant\ResultConst::TRACE_KEY, $throwable->getTraceAsString());
+        ContextManager::getInstance()->set(\Es37\Constant\ResultConst::FILE_KEY, $file);
+        ContextManager::getInstance()->set(\Es37\Constant\ResultConst::LINE_KEY, $line);
+        ContextManager::getInstance()->set(\Es37\Constant\ResultConst::TRACE_KEY, $throwable->getTraceAsString());
     }
 }
 
@@ -331,8 +331,8 @@ function isCrossDomain(): bool
 //function rabbitMqInvoke(callable $call, float $timeout = null)
 //{
 //    $rabbitPool = \EasySwoole\Pool\Manager::getInstance()->get(EsConst::ES_RABBIT);
-//    if (!$rabbitPool instanceof \Es3\Pool\RabbitPool) {
-//        throw new  \Es3\Exception\ErrorException(10121, "获取rabbitMq连接池异常");
+//    if (!$rabbitPool instanceof \Es37\Pool\RabbitPool) {
+//        throw new  \Es37\Exception\ErrorException(10121, "获取rabbitMq连接池异常");
 //    }
 //    return $rabbitPool->invoke($call, $timeout);
 //}
@@ -340,8 +340,8 @@ function isCrossDomain(): bool
 function rabbitMqInstance(float $timeout = null): AMQPStreamConnection
 {
     $rabbitPool = \EasySwoole\Pool\Manager::getInstance()->get(EsConst::ES_RABBIT);
-    if (!$rabbitPool instanceof \Es3\Pool\RabbitPool) {
-        throw new  \Es3\Exception\ErrorException(10124, "获取rabbitMq连接池异常");
+    if (!$rabbitPool instanceof \Es37\Pool\RabbitPool) {
+        throw new  \Es37\Exception\ErrorException(10124, "获取rabbitMq连接池异常");
     }
 
     return $rabbitPool->defer($timeout);
@@ -351,7 +351,7 @@ function redisInstance(float $timeout = null): \EasySwoole\Redis\Redis
 {
     $redisPool = \EasySwoole\RedisPool\Redis::getInstance()->get(EnvConst::REDIS_KEY);
     if (!$redisPool instanceof  \EasySwoole\RedisPool\RedisPool) {
-        throw new  \Es3\Exception\ErrorException(10121, "获取redis连接池异常");
+        throw new  \Es37\Exception\ErrorException(10121, "获取redis连接池异常");
     }
 
     return $redisPool->defer($timeout);

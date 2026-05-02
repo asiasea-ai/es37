@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3;
+namespace Es37;
 
 use App\Constant\AppConst;
 use EasySwoole\ORM\Utility\Schema\Table;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Es3\Utility;
+namespace Es37\Utility;
 
-use Es3\Exception\ErrorException;
+use Es37\Exception\ErrorException;
 
 class Assert
 {

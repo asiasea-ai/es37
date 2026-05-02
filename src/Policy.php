@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3;
+namespace Es37;
 
 use App\Constant\AppConst;
 use App\Constant\EnvConst;
@@ -11,7 +11,7 @@ use EasySwoole\EasySwoole\Command\Utility;
 use EasySwoole\FastCache\Cache;
 use EasySwoole\Http\Request;
 //use EasySwoole\Policy\PolicyNode;
-use Es3\Policy\PolicyNode;
+use Es37\Policy\PolicyNode;
 
 class Policy
 {
@@ -21,7 +21,7 @@ class Policy
 
     public function initialize(string $name): Policy
     {
-        $policy = new \Es3\Policy\Policy();
+        $policy = new \Es37\Policy\Policy();
         $isAuthKey = strtolower('policy.' . $name);
         $policyConf = config($isAuthKey, true) ?? [];
         foreach ($policyConf as $key => $conf) {

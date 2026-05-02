@@ -1,18 +1,18 @@
 <?php
 
-namespace Es3\Auth;
+namespace Es37\Auth;
 
 use App\Constant\AppConst;
 use EasySwoole\EasySwoole\Logger;
-use Es3\Exception\ErrorException;
-use Es3\Exception\InfoException;
-use Es3\Exception\WaringException;
+use Es37\Exception\ErrorException;
+use Es37\Exception\InfoException;
+use Es37\Exception\WaringException;
 use Firebase\JWT\ExpiredException;
 
 /**
  * 配置自动加载
  * Class HttpRouter
- * @package Es3\Autoload
+ * @package Es37\Autoload
  */
 class Jwt
 {

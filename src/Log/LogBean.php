@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Log;
+namespace Es37\Log;
 
 use App\Constant\AppConst;
 use App\Constant\EnvConst;
@@ -9,9 +9,9 @@ use EasySwoole\Component\Context\ContextManager;
 use EasySwoole\Component\Di;
 use EasySwoole\Http\Request;
 use EasySwoole\LinuxDash\LinuxDash;
-use Es3\Constant\ResultConst;
-use Es3\Output\Result;
-use Es3\Trace;
+use Es37\Constant\ResultConst;
+use Es37\Output\Result;
+use Es37\Trace;
 use http\Env;
 
 /**
@@ -58,8 +58,8 @@ class LogBean extends \EasySwoole\Spl\SplBean
         // 设置调用堆栈
 //        $this->setTrace(Di::getInstance()->get(ResultConst::TRACE_KEY));
         // 设置
-//        $this->setResponse(Di::getInstance()->get(\Es3\Constant\ResultConst::RESPONSE_KEY));
-        $this->setResponse(ContextManager::getInstance()->get(\Es3\Constant\ResultConst::RESPONSE_KEY));
+//        $this->setResponse(Di::getInstance()->get(\Es37\Constant\ResultConst::RESPONSE_KEY));
+        $this->setResponse(ContextManager::getInstance()->get(\Es37\Constant\ResultConst::RESPONSE_KEY));
         // 在日志中写入自定义参数 限制100个字符
         $this->setExtend(getLogExtend());
         // 设置创建人、创建id

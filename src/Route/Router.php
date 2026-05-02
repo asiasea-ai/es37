@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Es3\Route;
+namespace Es37\Route;
 
 /**
  * 路由助手 —— 把 Module 下的控制器方法（`AppBi\Module\<M>\Controller\<Ring>\<Entity>::method`）
@@ -14,7 +14,7 @@ namespace Es3\Route;
  *
  * 用法（在各 Module 的 router.php 里）：
  *
- *   use Es3\Route\Router as R;
+ *   use Es37\Route\Router as R;
  *   $route->addRoute('GET', '/aBcDeFgHiJkL/credential/detail', R::modHandler(CredentialCtrl::class, 'detail'));
  *
  * 完整 URL = outer + inner + path（path 里已含 mask）

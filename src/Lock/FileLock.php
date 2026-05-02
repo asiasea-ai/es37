@@ -1,9 +1,9 @@
 <?php
 
-namespace Es3\Lock;
+namespace Es37\Lock;
 
 use EasySwoole\Core\Component\Logger;
-use Es3\Exception\ErrorException;
+use Es37\Exception\ErrorException;
 
 class FileLock
 {

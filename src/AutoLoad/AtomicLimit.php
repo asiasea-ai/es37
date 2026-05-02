@@ -1,14 +1,14 @@
 <?php
 
-namespace Es3\AutoLoad;
+namespace Es37\AutoLoad;
 
 use App\Constant\AppConst;
 use EasySwoole\Component\Context\ContextManager;
 use EasySwoole\Component\Di;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\ServerManager;
-use Es3\Constant\EsConst;
-use Es3\Policy;
+use Es37\Constant\EsConst;
+use Es37\Policy;
 
 /**
  * 限流器

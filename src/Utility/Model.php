@@ -1,12 +1,12 @@
 <?php
 
-namespace Es3\Utility;
+namespace Es37\Utility;
 
 use App\Constant\AppConst;
 use EasySwoole\ORM\AbstractModel;
-use Es3\Constant\ResultConst;
-use Es3\Exception\ErrorException;
-use Es3\Output\Result;
+use Es37\Constant\ResultConst;
+use Es37\Exception\ErrorException;
+use Es37\Output\Result;
 
 class Model
 {

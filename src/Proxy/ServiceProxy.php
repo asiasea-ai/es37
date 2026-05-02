@@ -1,13 +1,13 @@
 <?php
 
-namespace Es3\Proxy;
+namespace Es37\Proxy;
 
 use App\Constant\AppConst;
-use Es3\Constant\EsConst;
+use Es37\Constant\EsConst;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Logger;
-use Es3\Base\Service;
-use Es3\EsUtility;
+use Es37\Base\Service;
+use Es37\EsUtility;
 
 class ServiceProxy
 {

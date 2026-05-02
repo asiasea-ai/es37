@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Utility;
+namespace Es37\Utility;
 
 class Text
 {

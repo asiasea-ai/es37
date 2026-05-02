@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Queue\Driver;
+namespace Es37\Queue\Driver;
 
 use EasySwoole\Queue\Job;
 use EasySwoole\Queue\QueueDriverInterface;

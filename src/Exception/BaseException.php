@@ -1,15 +1,15 @@
 <?php
 
-namespace Es3\Exception;
+namespace Es37\Exception;
 
 
 use App\Constant\EnvConst;
 use EasySwoole\Component\Di;
 use EasySwoole\EasySwoole\Logger;
-use Es3\Constant\ResultConst;
-use Es3\Handle\LoggerHandel;
+use Es37\Constant\ResultConst;
+use Es37\Handle\LoggerHandel;
 use EasySwoole\Component\Context\ContextManager;
-use Es3\Utility\Text;
+use Es37\Utility\Text;
 
 class BaseException extends \Exception
 {
@@ -20,10 +20,10 @@ class BaseException extends \Exception
     {
         $loggerHandel = new LoggerHandel(strtolower(EnvConst::PATH_LOG));
 
-        if (ContextManager::getInstance()->get(\Es3\Constant\ResultConst::FILE_KEY)) {
-            $line = ContextManager::getInstance()->get(\Es3\Constant\ResultConst::LINE_KEY);
-            $file = Text::phpToJava(ContextManager::getInstance()->get(\Es3\Constant\ResultConst::FILE_KEY), $line);
-            $trace = ContextManager::getInstance()->get(\Es3\Constant\ResultConst::TRACE_KEY);
+        if (ContextManager::getInstance()->get(\Es37\Constant\ResultConst::FILE_KEY)) {
+            $line = ContextManager::getInstance()->get(\Es37\Constant\ResultConst::LINE_KEY);
+            $file = Text::phpToJava(ContextManager::getInstance()->get(\Es37\Constant\ResultConst::FILE_KEY), $line);
+            $trace = ContextManager::getInstance()->get(\Es37\Constant\ResultConst::TRACE_KEY);
         } else {
             $file = Text::phpToJava($this->getFile(), $this->getLine());
             $line = $this->getLine();

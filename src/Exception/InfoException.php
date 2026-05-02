@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Exception;
+namespace Es37\Exception;
 
 
 use EasySwoole\EasySwoole\Logger;

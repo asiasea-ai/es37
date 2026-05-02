@@ -11,7 +11,7 @@
  *
  */
 
-namespace Es3\Policy;
+namespace Es37\Policy;
 
 class Policy
 {

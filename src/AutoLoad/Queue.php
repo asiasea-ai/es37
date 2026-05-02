@@ -1,14 +1,14 @@
 <?php
 
-namespace Es3\AutoLoad;
+namespace Es37\AutoLoad;
 
 use App\Constant\AppConst;
 use App\Constant\EnvConst;
-use Es3\Constant\EsConst;
+use Es37\Constant\EsConst;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Command\Utility;
 use EasySwoole\EasySwoole\Logger;
-use Es3\EsUtility;
+use Es37\EsUtility;
 
 class Queue
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Base;
+namespace Es37\Base;
 
 use App\Constant\AppConst;
 use App\Constant\PageConst;
@@ -15,19 +15,19 @@ use EasySwoole\Http\Exception\ParamAnnotationValidateError;
 use EasySwoole\Http\Message\Status;
 use EasySwoole\Trigger\Trigger;
 use EasySwoole\Validate\Validate;
-use Es3\AutoNew;
-use Es3\Constant\EsConst;
-use Es3\Constant\SwitchConst;
-use Es3\EsConfig;
-use Es3\EsUtility;
-use Es3\Exception\InfoException;
-use Es3\Exception\WaringException;
-use Es3\Output\Json;
-use Es3\Output\Result;
-use Es3\Proxy\DaoProxy;
-use Es3\Proxy\ModelProxy;
-use Es3\Proxy\ServiceProxy;
-use Es3\Proxy\ValidateProxy;
+use Es37\AutoNew;
+use Es37\Constant\EsConst;
+use Es37\Constant\SwitchConst;
+use Es37\EsConfig;
+use Es37\EsUtility;
+use Es37\Exception\InfoException;
+use Es37\Exception\WaringException;
+use Es37\Output\Json;
+use Es37\Output\Result;
+use Es37\Proxy\DaoProxy;
+use Es37\Proxy\ModelProxy;
+use Es37\Proxy\ServiceProxy;
+use Es37\Proxy\ValidateProxy;
 
 class BaseController extends Controller
 {
@@ -66,7 +66,7 @@ class BaseController extends Controller
         $params = $this->getParams();
 
         /** 默认排序 */
-        $orderBys = \Es3\Utility\Controller::getOrderBy($params);
+        $orderBys = \Es37\Utility\Controller::getOrderBy($params);
 
         /** 去掉不属于该表之外的字段 */
         $params = $this->getService()->adjustWhere($params);
@@ -105,7 +105,7 @@ class BaseController extends Controller
 
     /**
      * 批量删除
-     * @throws \Es3\Exception\WaringException
+     * @throws \Es37\Exception\WaringException
      * @throws \Throwable
      */
     function batchDelete()
@@ -210,7 +210,7 @@ class BaseController extends Controller
         $column = $params['column'];
 
         /** 默认排序 */
-        $orderBys = \Es3\Utility\Controller::getOrderBy($params);
+        $orderBys = \Es37\Utility\Controller::getOrderBy($params);
 
         /** 查询列表 */
         $dataList = $this->getService()->getAll($params, $page, $orderBys, [$column], []);
@@ -297,7 +297,7 @@ class BaseController extends Controller
             }
 
             /** 限流器 */
-            \Es3\Utility\AtomicLimit::getInstance()->url($this->request(), $this->response());
+            \Es37\Utility\AtomicLimit::getInstance()->url($this->request(), $this->response());
 
             return true;
         } catch (\Throwable $throwable) {

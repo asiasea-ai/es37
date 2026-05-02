@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Handle;
+namespace Es37\Handle;
 
 use App\Constant\AppConst;
 use EasySwoole\Component\Context\ContextManager;
@@ -10,8 +10,8 @@ use EasySwoole\Http\Response;
 use EasySwoole\Log\LoggerInterface;
 use EasySwoole\Trigger\Location;
 use EasySwoole\Trigger\TriggerInterface;
-use Es3\Exception\ErrorException;
-use Es3\Output\Json;
+use Es37\Exception\ErrorException;
+use Es37\Output\Json;
 
 class ShutdownHandel
 {

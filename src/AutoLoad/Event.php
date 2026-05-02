@@ -1,15 +1,15 @@
 <?php
 
-namespace Es3\AutoLoad;
+namespace Es37\AutoLoad;
 
 use App\Constant\AppConst;
-use Es3\Constant\EsConst;
+use Es37\Constant\EsConst;
 use App\Module\Employee\Crontab\UserCrontab;
 use AsaEs\RemoteCall\Rpc;
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Command\Utility;
 use EasySwoole\EasySwoole\Logger;
-use Es3\EsUtility;
+use Es37\EsUtility;
 use function foo\func;
 
 class Event
@@ -25,7 +25,7 @@ class Event
 
             foreach ($modules as $module) {
 
-                \Es3\Event::getInstance()->set($module, function ($module, $function, ...$args) use ($path) {
+                \Es37\Event::getInstance()->set($module, function ($module, $function, ...$args) use ($path) {
 
                     $module = ucwords($module);
                     $eventPath = $path . $module . '/' . EsConst::ES_FILE_NAME_EVENT;

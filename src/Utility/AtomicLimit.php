@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3\Utility;
+namespace Es37\Utility;
 
 
 use App\Constant\AppConst;
@@ -10,8 +10,8 @@ use EasySwoole\Component\Singleton;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
 use EasySwoole\Pay\WeChat\WeChatPay\App;
-use Es3\Constant\EsConst;
-use Es3\Exception\InfoException;
+use Es37\Constant\EsConst;
+use Es37\Exception\InfoException;
 
 class AtomicLimit
 {

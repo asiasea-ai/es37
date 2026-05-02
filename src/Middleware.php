@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3;
+namespace Es37;
 
 use App\Constant\AppConst;
 use App\Constant\EnvConst;
@@ -13,10 +13,10 @@ use EasySwoole\Http\Request;
 use \EasySwoole\Http\Response;
 
 use EasySwoole\Log\LoggerInterface;
-use Es3\Constant\EsConst;
-use Es3\Exception\ErrorException;
-use Es3\Handle\LoggerHandel;
-use Es3\Utility\File;
+use Es37\Constant\EsConst;
+use Es37\Exception\ErrorException;
+use Es37\Handle\LoggerHandel;
+use Es37\Utility\File;
 
 class Middleware
 {
@@ -106,7 +106,7 @@ class Middleware
         }
 
         // 没有开启校验返回成功
-        $isSign = \Es3\Policy::getInstance()->check(EsConst::POLICY_CONF_IS_SIGN);
+        $isSign = \Es37\Policy::getInstance()->check(EsConst::POLICY_CONF_IS_SIGN);
         if (!$isSign) {
             return true;
         }

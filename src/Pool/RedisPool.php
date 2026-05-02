@@ -5,7 +5,7 @@
  * Date: 2019/10/15 0015
  * Time: 14:46
  */
-namespace Es3\Pool;
+namespace Es37\Pool;
 
 use EasySwoole\Pool\Config;
 use EasySwoole\Pool\AbstractPool;

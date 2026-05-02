@@ -1,8 +1,8 @@
 <?php
 
-namespace Es3\Lock;
+namespace Es37\Lock;
 
-use Es3\Exception\ErrorException;
+use Es37\Exception\ErrorException;
 
 class EasyLock
 {
@@ -15,7 +15,7 @@ class EasyLock
 
     /**
      * @return $this
-     * @throws \Es3\Exception\ErrorException
+     * @throws \Es37\Exception\ErrorException
      */
     public function lock(): static
     {

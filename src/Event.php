@@ -1,6 +1,6 @@
 <?php
 
-namespace Es3;
+namespace Es37;
 
 use EasySwoole\Component\Container;
 use EasySwoole\Component\Singleton;
