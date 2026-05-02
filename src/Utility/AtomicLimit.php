@@ -1,0 +1,62 @@
+<?php
+
+namespace Es3\Utility;
+
+
+use App\Constant\AppConst;
+use EasySwoole\Component\Context\ContextManager;
+use EasySwoole\Component\Di;
+use EasySwoole\Component\Singleton;
+use EasySwoole\Http\Request;
+use EasySwoole\Http\Response;
+use EasySwoole\Pay\WeChat\WeChatPay\App;
+use Es3\Constant\EsConst;
+use Es3\Exception\InfoException;
+
+class AtomicLimit
+{
+    use Singleton;
+
+    /**
+     * 针对url判断是否限流
+     * @param Request $request
+     * @param Response $response
+     * @throws \Throwable
+     */
+    public function url(Request $request, Response $response)
+    {
+        $diAutoLimiter = (new \ReflectionClass(AppConst::class))->getConstant('DI_AUTO_LIMITER');
+        if (superEmpty($diAutoLimiter)) {
+            return;
+        }
+
+        /** 兼容没有常量的项目 */
+        if (!(new \ReflectionClass(AppConst::class))->getConstant('POLICY_CONF_ATOMIC_LIMIT_URL')) {
+            return;
+        }
+
+        if (!(new \ReflectionClass(AppConst::class))->getConstant('DI_AUTO_LIMITER')) {
+            return;
+        }
+
+        $configKey = EsConst::ES_POLICY_CONF_ATOMIC_LIMIT_URL;
+        $atomicLimitConfig = config("policy.{$configKey}", true);
+
+        /** 访问的url 配置的对应qps */
+        $uri = $request->getServerParams()['request_uri'];
+        $qps = $atomicLimitConfig[$uri] ?? null;
+
+        if (superEmpty($qps)) {
+            return;
+        }
+
+        /** @var \EasySwoole\AtomicLimit\AtomicLimit $limit */
+//        $limit = ContextManager::getInstance()->get(AppConst::DI_AUTO_LIMITER);
+        $limit = Di::getInstance()->get(EsConst::ES_DI_AUTO_LIMITER);;
+        $isAstrict = !($limit->access($uri, $qps));
+
+        if ($isAstrict) {
+            throw new InfoException(9654, "触发限流规则,请稍后再试!");
+        }
+    }
+}

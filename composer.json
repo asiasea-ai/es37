@@ -1,0 +1,16 @@
+{
+  "name": "asiasea-ai/es37",
+  "description": "es37",
+  "keywords": [],
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Es3\\": "src/"
+    }
+  }
+}
